@@ -61,7 +61,7 @@ const AllApplication = () => {
                 colSpan="4"
                 className="px-6 py-4 text-center text-sm text-gray-500"
               >
-                <h2 className="text-2xl text-center">No Application Fousnd</h2>{" "}
+                <h2 className="text-2xl text-center">No Application Found</h2>{" "}
               </td>
             </tr>
           )}

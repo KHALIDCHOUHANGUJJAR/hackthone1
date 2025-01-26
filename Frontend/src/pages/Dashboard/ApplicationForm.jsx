@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { postReq } from "../../Api/axios";
 import { toast } from "react-toastify";
+import { postReq } from "../../Api/axios";
 
 const categories = [
   {
@@ -85,8 +85,8 @@ const ApplicationForm = () => {
   };
 
   return (
-    <div className="max-w-lg w-full mx-auto mt-10 p-5 bg-white rounded-lg shadow-lg">
-      <h2 className="text-2xl font-semibold mb-6 text-indigo-700">
+    <div className="max-w-lg w-full mx-auto mt-10 p-5 bg-white rounded-lg  shadow-lg">
+      <h2 className="text-2xl font-semibold mb-6 ">
         Loan Application Form
       </h2>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">

@@ -1,24 +1,23 @@
-import React, { useState } from "react";
-import { LayoutDashboard, User, Settings, LogOut, FileText } from "lucide-react"; // Added FileText
-import { FaArrowRight, FaArrowLeft } from "react-icons/fa6";
+import { FileText, LogOut, User } from "lucide-react"; // Added FileText
+import { useState } from "react";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 import { NavLink, useNavigate } from "react-router-dom";
-import { RxDashboard } from "react-icons/rx";
-import { postReq } from "../../Api/axios";
 import { toast } from "react-toastify";
+import { postReq } from "../../Api/axios";
 
 const Sidebar = () => {
-
   const navigate = useNavigate();
 
-  const Logout = async()=>{
+
+  const Logout = async () => {
     try {
-      const response = await postReq('/auth/logout');
+      const response = await postReq("/auth/logout");
       toast.success("logout successfully");
-      navigate('/login')
+      navigate("/login");
     } catch (error) {
-      toast.error(error)
+      toast.error(error);
     }
-  }
+  };
 
   const [isOpen, setIsOpen] = useState(true);
 
@@ -39,6 +38,15 @@ const Sidebar = () => {
         <nav className="flex-1 px-4 py-8">
           <ul className="space-y-4">
             <li>
+              <button
+                onClick={Logout}
+                className="flex items-center gap-4 w-full text-white text-sm hover:bg-gray-700 p-2 rounded-md"
+              >
+                <LogOut />
+                {isOpen && <span>Logout</span>}
+              </button>
+            </li>
+            <li>
               <NavLink
                 to="applicationform"
                 className="flex items-center gap-4 text-white text-sm hover:bg-gray-700 p-2 rounded-md"
@@ -48,7 +56,8 @@ const Sidebar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to='allApplication'
+              <NavLink
+                to="allApplication"
                 className="flex items-center gap-4 text-white text-sm hover:bg-gray-700 p-2 rounded-md"
               >
                 <User />
@@ -58,12 +67,7 @@ const Sidebar = () => {
           </ul>
         </nav>
 
-        <div className="p-4">
-          <button onClick={Logout} className="flex items-center gap-4 w-full text-white text-sm hover:bg-gray-700 p-2 rounded-md">
-            <LogOut />
-            {isOpen && <span>Logout</span>}
-          </button>
-        </div>
+        <div className="p-4"></div>
       </div>
     </div>
   );
